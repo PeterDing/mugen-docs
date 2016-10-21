@@ -66,9 +66,9 @@ Clone the repository::
 
     $ git clone git://github.com/PeterDing/mugen.git
 
-or, download the `tarball <https://github.com/PeterDing/mugen/tarball/master>`::
+or, download the `tarball <https://github.com/PeterDing/mugen/tarball/master>`_::
 
-    $ curl -OL https://github.com/kennethreitz/requests/tarball/master
+    $ curl -OL https://github.com/PeterDing/mugen/tarball/master
 
 Install it::
 
