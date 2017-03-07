@@ -265,3 +265,21 @@ Mugen supports HTTP and HTTPS proxy. But it doesn't like
     # for https proxy
     proxy = 'http://127.0.0.1:8080'
     resp = yield from mugen.get('https://www.google.com', proxy=proxy)
+
+
+SOCKS
+-----
+
+.. versionadded:: 0.4.0
+
+Mugen also supports SOCKS5 protocol proxy from version 0.4.0.
+
+.. code-block:: python
+
+    # for SOCKS5 proxy
+    proxy = 'socks5://127.0.0.1:1080'
+    resp = yield from mugen.get('https://www.google.com', proxy=proxy)
+
+    # or
+    proxy = 'socks5://username:password@host:port'
+    resp = yield from mugen.get('https://www.google.com', proxy=proxy)

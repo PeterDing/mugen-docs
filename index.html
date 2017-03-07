@@ -246,6 +246,22 @@ handle parts of requests.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="socks">
+<h2>SOCKS<a class="headerlink" href="#socks" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.4.0.</span></p>
+</div>
+<p>Mugen also supports SOCKS5 protocol proxy from version 0.4.0.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># for SOCKS5 proxy</span>
+<span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+
+<span class="c1"># or</span>
+<span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;socks5://username:password@host:port&#39;</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -278,6 +294,7 @@ handle parts of requests.</p>
 <li><a class="reference internal" href="#connection-pool">Connection Pool</a></li>
 <li><a class="reference internal" href="#sessions">Sessions</a></li>
 <li><a class="reference internal" href="#proxies">Proxies</a></li>
+<li><a class="reference internal" href="#socks">SOCKS</a></li>
 </ul>
 </li>
 </ul>
