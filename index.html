@@ -1,57 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Mugen - HTTP for Asynchronous Requests &#8212; Mugen 0a01 documentation</title>
-    
-    <link rel="stylesheet" href="stylesheets/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="stylesheets/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0a01',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="stylesheets/jquery.js"></script>
-    <script type="text/javascript" src="stylesheets/underscore.js"></script>
-    <script type="text/javascript" src="stylesheets/doctools.js"></script>
-    <link rel="top" title="Mugen 0a01 documentation" href="#" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
    
-  <link rel="stylesheet" href="stylesheets/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="mugen-http-for-asynchronous-requests">
+  <section id="mugen-http-for-asynchronous-requests">
 <h1>Mugen - HTTP for Asynchronous Requests<a class="headerlink" href="#mugen-http-for-asynchronous-requests" title="Permalink to this headline">¶</a></h1>
 <p>Mugen is library for http asynchronous requests.</p>
 <p>Only running on python 3.4.0+</p>
 <p>ok, code demo:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
 <span class="kn">import</span> <span class="nn">mugen</span>
 
-<span class="nd">@asyncio.coroutine</span>
-<span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.google.com&#39;</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
 <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">task</span><span class="p">())</span>
@@ -59,245 +50,225 @@
 </pre></div>
 </div>
 <p>Mugen is a name from <em>Samurai Champloo</em> (サムライチャンプル, 混沌武士)</p>
-<div class="section" id="feature-support">
+<section id="feature-support">
 <h2>Feature Support<a class="headerlink" href="#feature-support" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Keep-Alive &amp; Connection Pooling</li>
-<li>DNS cache</li>
-<li>Sessions with Cookie Persistence</li>
-<li>Automatic Decompression</li>
-<li>Automatic Content Decoding</li>
-<li>HTTP(S) Proxy Support</li>
-<li>Connection Timeouts</li>
+<li><p>Keep-Alive &amp; Connection Pooling</p></li>
+<li><p>DNS cache</p></li>
+<li><p>Sessions with Cookie Persistence</p></li>
+<li><p>Automatic Decompression</p></li>
+<li><p>Automatic Content Decoding</p></li>
+<li><p>HTTP(S) Proxy Support</p></li>
+<li><p>Connection Timeouts</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="the-user-guide">
+</section>
+</section>
+<section id="the-user-guide">
 <h1>The User Guide<a class="headerlink" href="#the-user-guide" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pip-install-requests">
+<section id="pip-install-requests">
 <h2>Pip Install Requests<a class="headerlink" href="#pip-install-requests" title="Permalink to this headline">¶</a></h2>
-<p>Mugen is running on Python3.4+, installing with pip3:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip3 install mugen
+<p>Mugen is running on Python ^3.7, installing with pip3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install mugen
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-from-source-code">
+</section>
+<section id="install-from-source-code">
 <h2>Install from Source Code<a class="headerlink" href="#install-from-source-code" title="Permalink to this headline">¶</a></h2>
 <p>Mugen is developed on GitHub. You can find <a class="reference external" href="https://github.com/PeterDing/mugen">here</a>.</p>
 <p>Clone the repository:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone git://github.com/PeterDing/mugen.git
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git://github.com/PeterDing/mugen.git
 </pre></div>
 </div>
 <p>or, download the <a class="reference external" href="https://github.com/PeterDing/mugen/tarball/master">tarball</a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -OL https://github.com/PeterDing/mugen/tarball/master
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -OL https://github.com/PeterDing/mugen/tarball/master
 </pre></div>
 </div>
 <p>Install it:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python3 setup.py install
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 setup.py install
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="quickstart">
+</section>
+</section>
+<section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
 <p>Following is simple demo to show you how mugen works.</p>
-<div class="section" id="make-a-request">
+<section id="make-a-request">
 <h2>Make a Request<a class="headerlink" href="#make-a-request" title="Permalink to this headline">¶</a></h2>
 <p>To make a asynchronous request with mugen, firstly, you must import the standard
-library <code class="docutils literal"><span class="pre">asyncio</span></code> and <code class="docutils literal"><span class="pre">mugen</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+library <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> and <code class="docutils literal notranslate"><span class="pre">mugen</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
 <span class="kn">import</span> <span class="nn">mugen</span>
 </pre></div>
 </div>
 <p>OK, let us define a coroutine function as an asynchronous task, so asyncio can be
 use it. The task will make an asynchronous request. Finally, We give the task
 to one asynchronous loop which is generated by asyncio:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@asyncio.coroutine</span>
-<span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/headers&#39;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/headers&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
 <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">task</span><span class="p">())</span>
 <span class="n">loop</span><span class="o">.</span><span class="n">run_forever</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>After Python3.5, we can use <code class="docutils literal"><span class="pre">async</span> <span class="pre">def</span></code> and <code class="docutils literal"><span class="pre">await</span></code> instead of
-<code class="docutils literal"><span class="pre">&#64;asyncio.coroutine</span></code> and <code class="docutils literal"><span class="pre">yield</span> <span class="pre">from</span></code>.</p>
-<p>Here, we get a Response object called <code class="docutils literal"><span class="pre">resp</span></code> after the request is over.
-<code class="docutils literal"><span class="pre">resp</span></code> contains all the information of the request.</p>
+<p>Here, we get a Response object called <code class="docutils literal notranslate"><span class="pre">resp</span></code> after the request is over.
+<code class="docutils literal notranslate"><span class="pre">resp</span></code> contains all the information of the request.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">We will ignore loop define, after above code, as you has known it.</p>
+<p class="admonition-title">Warning</p>
+<p>We will ignore loop define, after above code, as you has known it.</p>
 </div>
 <p>We can also make a POST request, simply as following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;fooboo&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;fooboo&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now, mugen supports HTTP request types: GET, POST, HEAD. Other methods is
 on the load.</p>
-</div>
-<div class="section" id="parameters-in-urls">
+</section>
+<section id="parameters-in-urls">
 <h2>Parameters in URLs<a class="headerlink" href="#parameters-in-urls" title="Permalink to this headline">¶</a></h2>
 <p>Like <a class="reference external" href="https://github.com/kennethreitz/requests">requests</a>, Passing Parameters
 to urls is easy.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;boo&#39;</span><span class="p">}</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;boo&#39;</span><span class="p">}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="response-content">
+</section>
+<section id="response-content">
 <h2>Response Content<a class="headerlink" href="#response-content" title="Permalink to this headline">¶</a></h2>
-<p>We can read the content of the server&#8217;s response.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<p>We can read the content of the server’s response.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">resp.content</span></code> is the origin bytes of the response (decoded if transfer-encodings
-is <code class="docutils literal"><span class="pre">gzip</span></code> or <code class="docutils literal"><span class="pre">deflate</span></code>), we can get its unicode string by <code class="docutils literal"><span class="pre">resp.text</span></code> which
-decoded by <code class="docutils literal"><span class="pre">resp.encoding</span></code>. If <code class="docutils literal"><span class="pre">resp.encoding</span></code> is wrong, setting it to the
+<p><code class="docutils literal notranslate"><span class="pre">resp.content</span></code> is the origin bytes of the response (decoded if transfer-encodings
+is <code class="docutils literal notranslate"><span class="pre">gzip</span></code> or <code class="docutils literal notranslate"><span class="pre">deflate</span></code>), we can get its unicode string by <code class="docutils literal notranslate"><span class="pre">resp.text</span></code> which
+decoded by <code class="docutils literal notranslate"><span class="pre">resp.encoding</span></code>. If <code class="docutils literal notranslate"><span class="pre">resp.encoding</span></code> is wrong, setting it to the
 right encoding.</p>
-</div>
-<div class="section" id="json-response-content">
+</section>
+<section id="json-response-content">
 <h2>JSON Response Content<a class="headerlink" href="#json-response-content" title="Permalink to this headline">¶</a></h2>
-<p>Handling JSON response content, mugen use standard library <code class="docutils literal"><span class="pre">json</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<p>Handling JSON response content, mugen use standard library <code class="docutils literal notranslate"><span class="pre">json</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="more-complicated-post-requests">
+</section>
+<section id="more-complicated-post-requests">
 <h2>More complicated POST requests<a class="headerlink" href="#more-complicated-post-requests" title="Permalink to this headline">¶</a></h2>
 <p>To send some form-encoded data — much like an HTML form.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>We can also put <code class="docutils literal"><span class="pre">str</span></code> or <code class="docutils literal"><span class="pre">bytes</span></code> to data.</p>
-</div>
-<div class="section" id="post-a-multipart-encoded-file">
+<p>We can also put <code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">bytes</span></code> to data.</p>
+</section>
+<section id="post-a-multipart-encoded-file">
 <h2>POST a Multipart-Encoded File<a class="headerlink" href="#post-a-multipart-encoded-file" title="Permalink to this headline">¶</a></h2>
 <p>Now, mugen does not support post a multipart-encoded file.</p>
-</div>
-<div class="section" id="response-status-codes-headers-cookies-redirection">
+</section>
+<section id="response-status-codes-headers-cookies-redirection">
 <h2>Response Status Codes, Headers, Cookies, redirection<a class="headerlink" href="#response-status-codes-headers-cookies-redirection" title="Permalink to this headline">¶</a></h2>
-<p>The status code of one response can be get by <code class="docutils literal"><span class="pre">Request.status_code</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<p>The status code of one response can be get by <code class="docutils literal notranslate"><span class="pre">Request.status_code</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The headers of the response is at <code class="docutils literal"><span class="pre">resp.headers</span></code>, cookies is <code class="docutils literal"><span class="pre">resp.cookies</span></code>
-and redirecting history locates <code class="docutils literal"><span class="pre">resp.history</span></code>.</p>
-</div>
-<div class="section" id="timeouts">
+<p>The headers of the response is at <code class="docutils literal notranslate"><span class="pre">resp.headers</span></code>, cookies is <code class="docutils literal notranslate"><span class="pre">resp.cookies</span></code>
+and redirecting history locates <code class="docutils literal notranslate"><span class="pre">resp.history</span></code>.</p>
+</section>
+<section id="timeouts">
 <h2>Timeouts<a class="headerlink" href="#timeouts" title="Permalink to this headline">¶</a></h2>
 <p>Setting second timeout to a request:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/events&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="connection-pool">
+</section>
+<section id="connection-pool">
 <h2>Connection Pool<a class="headerlink" href="#connection-pool" title="Permalink to this headline">¶</a></h2>
 <p>Mugen uses only one global connection pool to manage all connections.</p>
 <p>We assume that ALL connections will be used more then once. So, when we use
-<code class="docutils literal"><span class="pre">loop.run_until_complete(task())</span></code> to start the loop, at the end of loop, ALL
+<code class="docutils literal notranslate"><span class="pre">loop.run_until_complete(task())</span></code> to start the loop, at the end of loop, ALL
 connections will not be closed automatically. This could raise a exception.</p>
-<p>If we just want to use one connection only once, please, setting <code class="docutils literal"><span class="pre">recycle=False</span></code>
+<p>If we just want to use one connection only once, please, setting <code class="docutils literal notranslate"><span class="pre">recycle=False</span></code>
 to the request:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
 <span class="kn">import</span> <span class="nn">mugen</span>
 
-<span class="nd">@asyncio.coroutine</span>
-<span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.google.com&#39;</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">recycle</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">recycle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
 <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">task</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sessions">
+</section>
+<section id="sessions">
 <h2>Sessions<a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h2>
 <p>Mugen supports session like other http library.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">mugen</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://www.google.com&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">mugen</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://www.google.com&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">mugen.session()</span></code> makes a <code class="docutils literal"><span class="pre">Session</span></code> object <code class="docutils literal"><span class="pre">session</span></code> for us, using to
+<p><code class="docutils literal notranslate"><span class="pre">mugen.session()</span></code> makes a <code class="docutils literal notranslate"><span class="pre">Session</span></code> object <code class="docutils literal notranslate"><span class="pre">session</span></code> for us, using to
 handle parts of requests.</p>
-</div>
-<div class="section" id="proxies">
+</section>
+<section id="proxies">
 <h2>Proxies<a class="headerlink" href="#proxies" title="Permalink to this headline">¶</a></h2>
-<p>Mugen supports HTTP and HTTPS proxy. But it doesn&#8217;t like
+<p>Mugen supports HTTP and HTTPS proxy. But it doesn’t like
 <a class="reference external" href="https://github.com/kennethreitz/requests">requests</a>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># for http proxy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># for http proxy</span>
 <span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
 
 <span class="c1"># for https proxy</span>
 <span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="socks">
+</section>
+<section id="socks">
 <h2>SOCKS<a class="headerlink" href="#socks" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 0.4.0.</span></p>
+<p><span class="versionmodified added">New in version 0.4.0.</span></p>
 </div>
 <p>Mugen also supports SOCKS5 protocol proxy from version 0.4.0.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># for SOCKS5 proxy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># for SOCKS5 proxy</span>
 <span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
 
 <span class="c1"># or</span>
 <span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;socks5://username:password@host:port&#39;</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mugen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="n">proxy</span><span class="o">=</span><span class="n">proxy</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Mugen - HTTP for Asynchronous Requests</a><ul>
-<li><a class="reference internal" href="#feature-support">Feature Support</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-user-guide">The User Guide</a></li>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#pip-install-requests">Pip Install Requests</a></li>
-<li><a class="reference internal" href="#install-from-source-code">Install from Source Code</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#quickstart">Quickstart</a><ul>
-<li><a class="reference internal" href="#make-a-request">Make a Request</a></li>
-<li><a class="reference internal" href="#parameters-in-urls">Parameters in URLs</a></li>
-<li><a class="reference internal" href="#response-content">Response Content</a></li>
-<li><a class="reference internal" href="#json-response-content">JSON Response Content</a></li>
-<li><a class="reference internal" href="#more-complicated-post-requests">More complicated POST requests</a></li>
-<li><a class="reference internal" href="#post-a-multipart-encoded-file">POST a Multipart-Encoded File</a></li>
-<li><a class="reference internal" href="#response-status-codes-headers-cookies-redirection">Response Status Codes, Headers, Cookies, redirection</a></li>
-<li><a class="reference internal" href="#timeouts">Timeouts</a></li>
-<li><a class="reference internal" href="#connection-pool">Connection Pool</a></li>
-<li><a class="reference internal" href="#sessions">Sessions</a></li>
-<li><a class="reference internal" href="#proxies">Proxies</a></li>
-<li><a class="reference internal" href="#socks">SOCKS</a></li>
-</ul>
-</li>
-</ul>
+<h1 class="logo"><a href="#">Mugen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -305,23 +276,24 @@ handle parts of requests.</p>
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -330,11 +302,11 @@ handle parts of requests.</p>
       &copy;2016, PeterDing.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/index.txt"
+      <a href="_sources/index.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
